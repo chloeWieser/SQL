@@ -200,26 +200,46 @@
 -- Perform a left outer join from the tech table to the project_uses_tech table - which techs has no associated project?
 
 -- SELECT *
--- FROM tech
+-- FROM tech 
 -- LEFT OUTER JOIN project_uses_tech ON tech.id = project_uses_tech.tech_id;
 
--- Ruby, Javascript and Java
+--answer: Ruby, Javascript and Java
+
 
 
 -- Based on the previous query, get the count of the number of techs used by each project.
---?didn't get it
--- SELECT project.name, COUNT(name) as number_of_languages
--- FROM tech
--- LEFT OUTER JOIN project_uses_tech ON tech.id = project_uses_tech.tech_id;
+
+-- SELECT COUNT(project_id) as number_of_languagesn, project_id
+-- FROM 
+-- ( SELECT * 
+-- FROM tech 
+-- LEFT OUTER JOIN project_uses_tech ON tech.id = project_uses_tech.tech_id)
+-- as techUse
+-- GROUP BY project_id
+-- ORDER BY project_id;
+
 
 
 
 -- Perform a left outer join from the project table to the project_users_tech table - which projects has no associated tech?
---?didn't get it
+
+-- SELECT *
+-- FROM project 
+-- LEFT OUTER JOIN project_uses_tech ON project.id = project_uses_tech.project_id;
+
+-- Answer: Whiteboard exercises
+
+
+
 
 
 -- Based on the previous query, get the count of the number of projects that use each tech.
---?didn't get it
+SELECT COUNT(tech_id) as number_of_projects, project_id FROM(
+SELECT *
+FROM project 
+LEFT OUTER JOIN project_uses_tech ON project.id = project_uses_tech.project_id)
+as howManyProjects
+ORDER BY tech_id;
 
 
 -- List all projects along with each technology used by it. You will need to do a three-way join.

@@ -177,7 +177,7 @@
 
 
 --List all the reviews along with the restaurant they were written for. In the query result, select the restaurant name and the review text.
--- ?DON'T UNDERSTAND THE QUESTION
+-- ?DON'T UNDERSTAND THE QUESTION- SEEMS LIKE IT'S THE SAME AS # 2 QUESTIONS AGO
 
 -- SELECT review, restaurant.name FROM(
 --     SELECT *
