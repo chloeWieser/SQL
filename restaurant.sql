@@ -41,10 +41,10 @@
 -- SELECT * FROM restaurant WHERE distance <= 2;
 
 -- restaurants you haven't ate at in the last week
--- SELECT * FROM restaurant WHERE last_time_you_ate_there was less than 7 days ago/????????????;
+-- SELECT name FROM restaurant WHERE lastAte<='2022-03-22';
 
 -- restaurants you haven't ate at in the last week and has 5 stars
--- ?????
+-- SELECT name FROM restaurant WHERE lastAte<='2022-03-22' and stars=5;
 
 -- 6. Aggregation and Sorting Queries
 
@@ -64,15 +64,14 @@
 -- SELECT COUNT(*) FROM restaurant; 
 
 -- count the number of restaurants by category.
--- SELECT COUNT(*) FROM restaurant WHERE category = 'Italian'; 
--- ??? how do you do it for all categories at once?
+-- SELECT COUNT(category) FROM restaurant;
 
 -- get the average stars per restaurant by category.
--- SELECT AVG(stars) FROM restaurant;
+-- SELECT category, AVG(stars) FROM restaurant GROUP BY category;
 
 -- get the max stars of a restaurant by category.
 -- SELECT MAX(stars) FROM restaurant;
--- ??? how do you do it for all categories at once?
+-- SELECT category, MAX(points) FROM restaurant GROUP BY category;
 
 
 
@@ -225,3 +224,35 @@
 
 
 --Get the lowest star rating given by each reviewer. (reviewer name, lowest star rating)
+
+-- SELECT MIN(stars) as lowest_star_rating, reviewer.name as reviewer_name
+-- FROM review
+-- INNER JOIN reviewer ON review.reviewer_id = reviewer.id
+-- GROUP BY reviewer.name;
+
+
+
+--Get the number of restaurants in each category. (category name, restaurant count)
+
+-- SELECT COUNT(restaurant) as restaurant_count, restaurant.category as category_name
+-- FROM restaurant
+-- GROUP BY restaurant.category;
+
+
+
+--Get number of 5 star reviews given by restaurant. (restaurant name, 5-star count)
+
+-- SELECT COUNT(stars) as five_star_count, name as restaurant_name
+-- FROM restaurant
+-- INNER JOIN review ON review.restaurant_id = restaurant.id
+-- WHERE stars = 5
+-- GROUP BY restaurant.name;
+
+
+
+--Get the average star rating for a food category. (category name, average star rating)
+
+-- SELECT AVG(stars) as average_star_rating, restaurant.category as category_name
+-- FROM review
+-- INNER JOIN restaurant ON review.restaurant_id = restaurant.id
+-- GROUP BY restaurant.category;

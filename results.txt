@@ -1,12 +1,9 @@
- average_star_rating | reviewer_name 
+ average_star_rating | category_name 
 ---------------------+---------------
-  3.0000000000000000 | Billy
-  5.0000000000000000 | Bobby
-  4.0000000000000000 | Krieg
-  2.5000000000000000 | Rick
-  3.0000000000000000 | Matt
-  2.5000000000000000 | Charles
-  2.0000000000000000 | Karen
-  3.5000000000000000 | Samantha
-(8 rows)
+  2.8333333333333333 | American
+  5.0000000000000000 | BBQ
+  2.6666666666666667 | Tex-Mex
+  4.0000000000000000 | Fried Chicken
+  2.6666666666666667 | Italian
+(5 rows)
 
